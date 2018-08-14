@@ -4,12 +4,7 @@ export const SocialButtonStyle = () => {
     buttonContainer: {
       textAlign: 'right' as 'right',
       width: '100%',
-      marginTop: '2em',
-      '& button': {
-        '& span': {
-          width: '100%'
-        }
-      }
+      marginTop: '2em'
     },
     button: {
       color: '#fff',

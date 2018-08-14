@@ -253,23 +253,6 @@ module.exports = _inherits;
 
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime/helpers/builtin/inheritsLoose.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/builtin/inheritsLoose.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _inheritsLoose(subClass, superClass) {
-  subClass.prototype = Object.create(superClass.prototype);
-  subClass.prototype.constructor = subClass;
-  subClass.__proto__ = superClass;
-}
-
-module.exports = _inheritsLoose;
-
-/***/ }),
-
 /***/ "./node_modules/@babel/runtime/helpers/builtin/interopRequireDefault.js":
 /*!******************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/builtin/interopRequireDefault.js ***!
@@ -1667,7 +1650,7 @@ var styles = function styles(theme) {
       padding: '8px 16px',
       borderRadius: theme.shape.borderRadius,
       color: theme.palette.text.primary,
-      transition: theme.transitions.create(['background-color', 'box-shadow'], {
+      transition: theme.transitions.create(['background-color', 'box-shadow', 'border'], {
         duration: theme.transitions.duration.short
       }),
       '&:hover': {
@@ -1734,6 +1717,22 @@ var styles = function styles(theme) {
     /* Styles applied to the root element if `variant="outlined"`. */
     outlined: {
       border: "1px solid ".concat(theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.23)' : 'rgba(255, 255, 255, 0.23)')
+    },
+
+    /* Styles applied to the root element if `variant="outlined"` and `color="primary"`. */
+    outlinedPrimary: {
+      border: "1px solid ".concat((0, _colorManipulator.fade)(theme.palette.primary.main, 0.5)),
+      '&:hover': {
+        border: "1px solid ".concat(theme.palette.primary.main)
+      }
+    },
+
+    /* Styles applied to the root element if `variant="outlined"` and `color="secondary"`. */
+    outlinedSecondary: {
+      border: "1px solid ".concat((0, _colorManipulator.fade)(theme.palette.secondary.main, 0.5)),
+      '&:hover': {
+        border: "1px solid ".concat(theme.palette.secondary.main)
+      }
     },
 
     /* Styles applied to the root element if `variant="[contained | fab]"`. */
@@ -1884,7 +1883,7 @@ function Button(props) {
   var fab = variant === 'fab' || variant === 'extendedFab';
   var contained = variant === 'contained' || variant === 'raised';
   var text = variant === 'text' || variant === 'flat' || variant === 'outlined';
-  var className = (0, _classnames.default)(classes.root, (_classNames = {}, (0, _defineProperty2.default)(_classNames, classes.fab, fab), (0, _defineProperty2.default)(_classNames, classes.mini, fab && mini), (0, _defineProperty2.default)(_classNames, classes.extendedFab, variant === 'extendedFab'), (0, _defineProperty2.default)(_classNames, classes.text, text), (0, _defineProperty2.default)(_classNames, classes.textPrimary, text && color === 'primary'), (0, _defineProperty2.default)(_classNames, classes.textSecondary, text && color === 'secondary'), (0, _defineProperty2.default)(_classNames, classes.flat, variant === 'text' || variant === 'flat'), (0, _defineProperty2.default)(_classNames, classes.flatPrimary, (variant === 'text' || variant === 'flat') && color === 'primary'), (0, _defineProperty2.default)(_classNames, classes.flatSecondary, (variant === 'text' || variant === 'flat') && color === 'secondary'), (0, _defineProperty2.default)(_classNames, classes.contained, contained || fab), (0, _defineProperty2.default)(_classNames, classes.containedPrimary, (contained || fab) && color === 'primary'), (0, _defineProperty2.default)(_classNames, classes.containedSecondary, (contained || fab) && color === 'secondary'), (0, _defineProperty2.default)(_classNames, classes.raised, contained || fab), (0, _defineProperty2.default)(_classNames, classes.raisedPrimary, (contained || fab) && color === 'primary'), (0, _defineProperty2.default)(_classNames, classes.raisedSecondary, (contained || fab) && color === 'secondary'), (0, _defineProperty2.default)(_classNames, classes.outlined, variant === 'outlined'), (0, _defineProperty2.default)(_classNames, classes["size".concat((0, _helpers.capitalize)(size))], size !== 'medium'), (0, _defineProperty2.default)(_classNames, classes.disabled, disabled), (0, _defineProperty2.default)(_classNames, classes.fullWidth, fullWidth), (0, _defineProperty2.default)(_classNames, classes.colorInherit, color === 'inherit'), _classNames), classNameProp);
+  var className = (0, _classnames.default)(classes.root, (_classNames = {}, (0, _defineProperty2.default)(_classNames, classes.fab, fab), (0, _defineProperty2.default)(_classNames, classes.mini, fab && mini), (0, _defineProperty2.default)(_classNames, classes.extendedFab, variant === 'extendedFab'), (0, _defineProperty2.default)(_classNames, classes.text, text), (0, _defineProperty2.default)(_classNames, classes.textPrimary, text && color === 'primary'), (0, _defineProperty2.default)(_classNames, classes.textSecondary, text && color === 'secondary'), (0, _defineProperty2.default)(_classNames, classes.flat, variant === 'text' || variant === 'flat'), (0, _defineProperty2.default)(_classNames, classes.flatPrimary, (variant === 'text' || variant === 'flat') && color === 'primary'), (0, _defineProperty2.default)(_classNames, classes.flatSecondary, (variant === 'text' || variant === 'flat') && color === 'secondary'), (0, _defineProperty2.default)(_classNames, classes.contained, contained || fab), (0, _defineProperty2.default)(_classNames, classes.containedPrimary, (contained || fab) && color === 'primary'), (0, _defineProperty2.default)(_classNames, classes.containedSecondary, (contained || fab) && color === 'secondary'), (0, _defineProperty2.default)(_classNames, classes.raised, contained || fab), (0, _defineProperty2.default)(_classNames, classes.raisedPrimary, (contained || fab) && color === 'primary'), (0, _defineProperty2.default)(_classNames, classes.raisedSecondary, (contained || fab) && color === 'secondary'), (0, _defineProperty2.default)(_classNames, classes.outlined, variant === 'outlined'), (0, _defineProperty2.default)(_classNames, classes.outlinedPrimary, variant === 'outlined' && color === 'primary'), (0, _defineProperty2.default)(_classNames, classes.outlinedSecondary, variant === 'outlined' && color === 'secondary'), (0, _defineProperty2.default)(_classNames, classes["size".concat((0, _helpers.capitalize)(size))], size !== 'medium'), (0, _defineProperty2.default)(_classNames, classes.disabled, disabled), (0, _defineProperty2.default)(_classNames, classes.fullWidth, fullWidth), (0, _defineProperty2.default)(_classNames, classes.colorInherit, color === 'inherit'), _classNames), classNameProp);
   return _react.default.createElement(_ButtonBase.default, (0, _extends2.default)({
     className: className,
     disabled: disabled,
@@ -6991,7 +6990,7 @@ function (_React$Component) {
     var _this;
 
     (0, _classCallCheck2.default)(this, ExpansionPanel);
-    _this = (0, _possibleConstructorReturn2.default)(this, (ExpansionPanel.__proto__ || Object.getPrototypeOf(ExpansionPanel)).call(this, props));
+    _this = (0, _possibleConstructorReturn2.default)(this, (ExpansionPanel.__proto__ || Object.getPrototypeOf(ExpansionPanel)).call(this));
     _this.isControlled = null;
     _this.state = {};
 
@@ -7959,7 +7958,7 @@ function (_React$Component) {
     var _this;
 
     (0, _classCallCheck2.default)(this, FormControl);
-    _this = (0, _possibleConstructorReturn2.default)(this, (FormControl.__proto__ || Object.getPrototypeOf(FormControl)).call(this, props)); // We need to iterate through the children and find the Input in order
+    _this = (0, _possibleConstructorReturn2.default)(this, (FormControl.__proto__ || Object.getPrototypeOf(FormControl)).call(this)); // We need to iterate through the children and find the Input in order
     // to fully support server side rendering.
 
     _this.state = {
@@ -8000,7 +7999,7 @@ function (_React$Component) {
       }
     };
 
-    var children = _this.props.children;
+    var children = props.children;
 
     if (children) {
       _react.default.Children.forEach(children, function (child) {
@@ -11297,7 +11296,7 @@ var styles = function styles(theme) {
       display: 'inline-flex',
       position: 'relative',
       fontFamily: theme.typography.fontFamily,
-      color: light ? 'rgba(0, 0, 0, 0.87)' : theme.palette.common.white,
+      color: theme.palette.text.primary,
       fontSize: theme.typography.pxToRem(16),
       lineHeight: '1.1875em',
       // Reset (19px), match the native input line-height
@@ -11319,7 +11318,7 @@ var styles = function styles(theme) {
     /* Styles applied to the root element if `disabled={true}`. */
     disabled: {},
 
-    /* Styles applied to the root element if `disabledUnderline={false}`. */
+    /* Styles applied to the root element if `disableUnderline={false}`. */
     underline: {
       '&:after': {
         borderBottom: "2px solid ".concat(theme.palette.primary[light ? 'dark' : 'light']),
@@ -11510,7 +11509,7 @@ function (_React$Component) {
 
     (0, _classCallCheck2.default)(this, Input);
     _this = (0, _possibleConstructorReturn2.default)(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this, props, context));
-    _this.isControlled = _this.props.value != null;
+    _this.isControlled = null;
     _this.input = null;
     _this.state = {
       focused: false
@@ -11584,6 +11583,8 @@ function (_React$Component) {
         }
       }
     };
+
+    _this.isControlled = props.value != null;
 
     if (_this.isControlled) {
       _this.checkDirty(props);
@@ -12064,10 +12065,8 @@ function (_React$Component) {
     var _this;
 
     (0, _classCallCheck2.default)(this, Textarea);
-    _this = (0, _possibleConstructorReturn2.default)(this, (Textarea.__proto__ || Object.getPrototypeOf(Textarea)).call(this, props)); // <Input> expects the components it renders to respond to 'value'
-    // so that it can check whether they are filled.
-
-    _this.isControlled = _this.props.value != null;
+    _this = (0, _possibleConstructorReturn2.default)(this, (Textarea.__proto__ || Object.getPrototypeOf(Textarea)).call(this));
+    _this.isControlled = null;
     _this.shadowRef = null;
     _this.singlelineShadowRef = null;
     _this.inputRef = null;
@@ -12114,6 +12113,9 @@ function (_React$Component) {
         _this.props.onChange(event);
       }
     };
+
+    _this.isControlled = props.value != null; // <Input> expects the components it renders to respond to 'value'
+    // so that it can check whether they are filled.
 
     _this.value = props.value || props.defaultValue || '';
     _this.state = {
@@ -12594,7 +12596,7 @@ InputLabel.propTypes =  true ? {
   focused: _propTypes.default.bool,
 
   /**
-   * `classes` property applied to the `FormLabel` element.
+   * `classes` property applied to the [`FormLabel`](/api/form-label) element.
    */
   FormLabelClasses: _propTypes.default.object,
 
@@ -14474,7 +14476,7 @@ Menu.propTypes =  true ? {
   PaperProps: _propTypes.default.object,
 
   /**
-   * `classes` property applied to the `Popover` element.
+   * `classes` property applied to the [`Popover`](/api/popover) element.
    */
   PopoverClasses: _propTypes.default.object,
 
@@ -15276,7 +15278,7 @@ function (_React$Component) {
     var _this;
 
     (0, _classCallCheck2.default)(this, Modal);
-    _this = (0, _possibleConstructorReturn2.default)(this, (Modal.__proto__ || Object.getPrototypeOf(Modal)).call(this, props));
+    _this = (0, _possibleConstructorReturn2.default)(this, (Modal.__proto__ || Object.getPrototypeOf(Modal)).call(this));
     _this.mountNode = null;
     _this.modalRef = null;
     _this.dialogRef = null;
@@ -15371,7 +15373,7 @@ function (_React$Component) {
     };
 
     _this.state = {
-      exited: !_this.props.open
+      exited: !props.open
     };
     return _this;
   }
@@ -16200,7 +16202,7 @@ NativeSelect.propTypes =  true ? {
   /**
    * The input value.
    */
-  value: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number])
+  value: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number, _propTypes.default.bool])
 } : undefined;
 NativeSelect.defaultProps = {
   IconComponent: _ArrowDropDown.default,
@@ -16322,7 +16324,7 @@ NativeSelectInput.propTypes =  true ? {
   /**
    * The input value.
    */
-  value: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number])
+  value: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number, _propTypes.default.bool])
 } : undefined;
 var _default = NativeSelectInput;
 exports.default = _default;
@@ -16386,9 +16388,6 @@ var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ ".
 
 var _exactProp = _interopRequireDefault(__webpack_require__(/*! ../utils/exactProp */ "./node_modules/@material-ui/core/utils/exactProp.js"));
 
-var Fallback = function Fallback() {
-  return null;
-};
 /**
  * NoSsr purposely removes components from the subject of Server Side Rendering (SSR).
  *
@@ -16398,8 +16397,6 @@ var Fallback = function Fallback() {
  * - Reduce the rendering time on the server.
  * - Under too heavy server load, you can turn on service degradation.
  */
-
-
 var NoSsr =
 /*#__PURE__*/
 function (_React$Component) {
@@ -16424,9 +16421,34 @@ function (_React$Component) {
   (0, _createClass2.default)(NoSsr, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.setState({
-        mounted: true
-      }); // eslint-disable-line react/no-did-mount-set-state
+      var _this2 = this;
+
+      this.mounted = true;
+
+      if (this.props.defer) {
+        // Wondering why we use two raf? Check this video out:
+        // https://www.youtube.com/watch?v=cCOL7MC4Pl0
+        requestAnimationFrame(function () {
+          // The browser should be about to render the DOM that React commited at this point.
+          // We don't want to interrupt. Let's wait the next raf.
+          requestAnimationFrame(function () {
+            if (_this2.mounted) {
+              _this2.setState({
+                mounted: true
+              });
+            }
+          });
+        });
+      } else {
+        this.setState({
+          mounted: true
+        }); // eslint-disable-line react/no-did-mount-set-state
+      }
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.mounted = false;
     }
   }, {
     key: "render",
@@ -16442,11 +16464,22 @@ function (_React$Component) {
 
 NoSsr.propTypes =  true ? {
   children: _propTypes.default.node.isRequired,
+
+  /**
+   * If `true`, the component will not only prevent server side rendering.
+   * It will also defer the rendering of the children into a different screen frame.
+   */
+  defer: _propTypes.default.bool,
+
+  /**
+   * The fallback content to display.
+   */
   fallback: _propTypes.default.node
 } : undefined;
 NoSsr.propTypes =  true ? (0, _exactProp.default)(NoSsr.propTypes) : undefined;
 NoSsr.defaultProps = {
-  fallback: _react.default.createElement(Fallback, null)
+  defer: false,
+  fallback: null
 };
 var _default = NoSsr;
 exports.default = _default;
@@ -16945,6 +16978,7 @@ function (_React$Component) {
           elevation = _props3.elevation,
           getContentAnchorEl = _props3.getContentAnchorEl,
           marginThreshold = _props3.marginThreshold,
+          ModalClasses = _props3.ModalClasses,
           onEnter = _props3.onEnter,
           onEntered = _props3.onEntered,
           onEntering = _props3.onEntering,
@@ -16958,7 +16992,7 @@ function (_React$Component) {
           TransitionComponent = _props3.TransitionComponent,
           transitionDurationProp = _props3.transitionDuration,
           TransitionProps = _props3.TransitionProps,
-          other = (0, _objectWithoutProperties2.default)(_props3, ["action", "anchorEl", "anchorOrigin", "anchorPosition", "anchorReference", "children", "classes", "container", "elevation", "getContentAnchorEl", "marginThreshold", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "open", "PaperProps", "role", "transformOrigin", "TransitionComponent", "transitionDuration", "TransitionProps"]);
+          other = (0, _objectWithoutProperties2.default)(_props3, ["action", "anchorEl", "anchorOrigin", "anchorPosition", "anchorReference", "children", "classes", "container", "elevation", "getContentAnchorEl", "marginThreshold", "ModalClasses", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "open", "PaperProps", "role", "transformOrigin", "TransitionComponent", "transitionDuration", "TransitionProps"]);
       var transitionDuration = transitionDurationProp;
 
       if (transitionDurationProp === 'auto' && !TransitionComponent.muiSupportAuto) {
@@ -16970,6 +17004,7 @@ function (_React$Component) {
 
       var container = containerProp || (anchorEl ? (0, _ownerDocument.default)(getAnchorEl(anchorEl)).body : undefined);
       return _react.default.createElement(_Modal.default, (0, _extends2.default)({
+        classes: ModalClasses,
         container: container,
         open: open,
         BackdropProps: {
@@ -17087,6 +17122,11 @@ Popover.propTypes =  true ? {
    * Specifies how close to the edge of the window the popover can appear.
    */
   marginThreshold: _propTypes.default.number,
+
+  /**
+   * `classes` property applied to the [`Modal`](/api/modal) element.
+   */
+  ModalClasses: _propTypes.default.object,
 
   /**
    * Callback fired when the component requests to be closed.
@@ -17306,7 +17346,7 @@ function (_React$Component) {
     var _this;
 
     (0, _classCallCheck2.default)(this, Popper);
-    _this = (0, _possibleConstructorReturn2.default)(this, (Popper.__proto__ || Object.getPrototypeOf(Popper)).call(this, props));
+    _this = (0, _possibleConstructorReturn2.default)(this, (Popper.__proto__ || Object.getPrototypeOf(Popper)).call(this));
     _this.popper = null;
 
     _this.handleOpen = function () {
@@ -17375,7 +17415,7 @@ function (_React$Component) {
     };
 
     _this.state = {
-      exited: !_this.props.open
+      exited: !props.open
     };
     return _this;
   }
@@ -18204,8 +18244,8 @@ function setRef(ref, value) {
  * import RootRef from '@material-ui/core/RootRef';
  *
  * class MyComponent extends React.Component {
- *   constructor(props) {
- *     super(props);
+ *   constructor() {
+ *     super();
  *     this.domRef = React.createRef();
  *   }
  *
@@ -18501,7 +18541,7 @@ Select.propTypes =  true ? {
    * The input value.
    * This property is required when the `native` property is `false` (default).
    */
-  value: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]))])
+  value: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number, _propTypes.default.bool, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number, _propTypes.default.bool]))])
 } : undefined;
 Select.defaultProps = {
   autoWidth: false,
@@ -18670,6 +18710,15 @@ function (_React$Component) {
       }
 
       if (_this.props.onBlur) {
+        var _this$props2 = _this.props,
+            value = _this$props2.value,
+            name = _this$props2.name;
+        event.persist();
+        event.target = {
+          value: value,
+          name: name
+        };
+
         _this.props.onBlur(event);
       }
     }, _this.handleKeyDown = function (event) {
@@ -19014,7 +19063,7 @@ SelectInput.propTypes =  true ? {
   /**
    * The input value.
    */
-  value: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]))]).isRequired
+  value: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number, _propTypes.default.bool, _propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number, _propTypes.default.bool]))]).isRequired
 } : undefined;
 var _default = SelectInput;
 exports.default = _default;
@@ -23006,7 +23055,9 @@ function (_React$Component) {
     value: function getChildContext() {
       // eslint-disable-line class-methods-use-this
       return {
-        table: {}
+        table: {
+          padding: this.props.padding
+        }
       };
     }
   }, {
@@ -23046,10 +23097,16 @@ Table.propTypes =  true ? {
    * The component used for the root node.
    * Either a string to use a DOM element or a component.
    */
-  component: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func, _propTypes.default.object])
+  component: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func, _propTypes.default.object]),
+
+  /**
+   * Allows TableCells to inherit padding of the Table.
+   */
+  padding: _propTypes.default.oneOf(['default', 'checkbox', 'dense', 'none'])
 } : undefined;
 Table.defaultProps = {
-  component: 'table'
+  component: 'table',
+  padding: 'default'
 };
 Table.childContextTypes = {
   table: _propTypes.default.object
@@ -23149,8 +23206,8 @@ function (_React$Component) {
     value: function getChildContext() {
       // eslint-disable-line class-methods-use-this
       return {
-        table: {
-          body: true
+        tablelvl2: {
+          variant: 'body'
         }
       };
     }
@@ -23197,7 +23254,7 @@ TableBody.defaultProps = {
   component: 'tbody'
 };
 TableBody.childContextTypes = {
-  table: _propTypes.default.object
+  tablelvl2: _propTypes.default.object
 };
 
 var _default = (0, _withStyles.default)(styles, {
@@ -23347,26 +23404,28 @@ function TableCell(props, context) {
       component = props.component,
       sortDirection = props.sortDirection,
       numeric = props.numeric,
-      padding = props.padding,
+      paddingProp = props.padding,
       scopeProp = props.scope,
       variant = props.variant,
       other = (0, _objectWithoutProperties2.default)(props, ["children", "classes", "className", "component", "sortDirection", "numeric", "padding", "scope", "variant"]);
-  var table = context.table;
+  var table = context.table,
+      tablelvl2 = context.tablelvl2;
   var Component;
 
   if (component) {
     Component = component;
   } else {
-    Component = table && table.head ? 'th' : 'td';
+    Component = tablelvl2 && tablelvl2.variant === 'head' ? 'th' : 'td';
   }
 
   var scope = scopeProp;
 
-  if (!scope && table && table.head) {
+  if (!scope && tablelvl2 && tablelvl2.variant === 'head') {
     scope = 'col';
   }
 
-  var className = (0, _classnames.default)(classes.root, (_classNames = {}, (0, _defineProperty2.default)(_classNames, classes.head, variant ? variant === 'head' : table && table.head), (0, _defineProperty2.default)(_classNames, classes.body, variant ? variant === 'body' : table && table.body), (0, _defineProperty2.default)(_classNames, classes.footer, variant ? variant === 'footer' : table && table.footer), (0, _defineProperty2.default)(_classNames, classes.numeric, numeric), (0, _defineProperty2.default)(_classNames, classes["padding".concat((0, _helpers.capitalize)(padding))], padding !== 'default'), _classNames), classNameProp);
+  var padding = paddingProp || (table && table.padding ? table.padding : 'default');
+  var className = (0, _classnames.default)(classes.root, (_classNames = {}, (0, _defineProperty2.default)(_classNames, classes.head, variant ? variant === 'head' : tablelvl2 && tablelvl2.variant === 'head'), (0, _defineProperty2.default)(_classNames, classes.body, variant ? variant === 'body' : tablelvl2 && tablelvl2.variant === 'body'), (0, _defineProperty2.default)(_classNames, classes.footer, variant ? variant === 'footer' : tablelvl2 && tablelvl2.variant === 'footer'), (0, _defineProperty2.default)(_classNames, classes.numeric, numeric), (0, _defineProperty2.default)(_classNames, classes["padding".concat((0, _helpers.capitalize)(padding))], padding !== 'default'), _classNames), classNameProp);
   var ariaSort = null;
 
   if (sortDirection) {
@@ -23410,6 +23469,7 @@ TableCell.propTypes =  true ? {
 
   /**
    * Sets the padding applied to the cell.
+   * By default, the Table parent component set the value.
    */
   padding: _propTypes.default.oneOf(['default', 'checkbox', 'dense', 'none']),
 
@@ -23430,11 +23490,11 @@ TableCell.propTypes =  true ? {
   variant: _propTypes.default.oneOf(['head', 'body', 'footer'])
 } : undefined;
 TableCell.defaultProps = {
-  numeric: false,
-  padding: 'default'
+  numeric: false
 };
 TableCell.contextTypes = {
-  table: _propTypes.default.object.isRequired
+  table: _propTypes.default.object,
+  tablelvl2: _propTypes.default.object
 };
 
 var _default = (0, _withStyles.default)(styles, {
@@ -23531,8 +23591,8 @@ function (_React$Component) {
     value: function getChildContext() {
       // eslint-disable-line class-methods-use-this
       return {
-        table: {
-          footer: true
+        tablelvl2: {
+          variant: 'footer'
         }
       };
     }
@@ -23579,7 +23639,7 @@ TableFooter.defaultProps = {
   component: 'tfoot'
 };
 TableFooter.childContextTypes = {
-  table: _propTypes.default.object
+  tablelvl2: _propTypes.default.object
 };
 
 var _default = (0, _withStyles.default)(styles, {
@@ -23676,8 +23736,8 @@ function (_React$Component) {
     value: function getChildContext() {
       // eslint-disable-line class-methods-use-this
       return {
-        table: {
-          head: true
+        tablelvl2: {
+          variant: 'head'
         }
       };
     }
@@ -23724,7 +23784,7 @@ TableHead.defaultProps = {
   component: 'thead'
 };
 TableHead.childContextTypes = {
-  table: _propTypes.default.object
+  tablelvl2: _propTypes.default.object
 };
 
 var _default = (0, _withStyles.default)(styles, {
@@ -24338,18 +24398,18 @@ var styles = function styles(theme) {
       }
     },
 
-    /* Styles applied to the root element if `context.table` & `selected={true}`. */
+    /* Styles applied to the root element if `selected={true}`. */
     selected: {},
 
-    /* Styles applied to the root element if `context.table` & `hover={true}`. */
+    /* Styles applied to the root element if `hover={true}`. */
     hover: {},
 
-    /* Styles applied to the root element if `context.table.head`. */
+    /* Styles applied to the root element if table variant = 'head'. */
     head: {
       height: 56
     },
 
-    /* Styles applied to the root element if `context.table.footer`. */
+    /* Styles applied to the root element if table variant = 'footer'. */
     footer: {
       height: 56
     }
@@ -24372,8 +24432,8 @@ function TableRow(props, context) {
       hover = props.hover,
       selected = props.selected,
       other = (0, _objectWithoutProperties2.default)(props, ["classes", "className", "component", "hover", "selected"]);
-  var table = context.table;
-  var className = (0, _classnames.default)(classes.root, (_classNames = {}, (0, _defineProperty2.default)(_classNames, classes.head, table && table.head), (0, _defineProperty2.default)(_classNames, classes.footer, table && table.footer), (0, _defineProperty2.default)(_classNames, classes.hover, table && hover), (0, _defineProperty2.default)(_classNames, classes.selected, table && selected), _classNames), classNameProp);
+  var tablelvl2 = context.tablelvl2;
+  var className = (0, _classnames.default)(classes.root, (_classNames = {}, (0, _defineProperty2.default)(_classNames, classes.head, tablelvl2 && tablelvl2.variant === 'head'), (0, _defineProperty2.default)(_classNames, classes.footer, tablelvl2 && tablelvl2.variant === 'footer'), (0, _defineProperty2.default)(_classNames, classes.hover, hover), (0, _defineProperty2.default)(_classNames, classes.selected, selected), _classNames), classNameProp);
   return _react.default.createElement(Component, (0, _extends2.default)({
     className: className
   }, other));
@@ -24418,7 +24478,7 @@ TableRow.defaultProps = {
   selected: false
 };
 TableRow.contextTypes = {
-  table: _propTypes.default.object
+  tablelvl2: _propTypes.default.object
 };
 
 var _default = (0, _withStyles.default)(styles, {
@@ -26126,7 +26186,7 @@ function (_React$Component) {
     var _this;
 
     (0, _classCallCheck2.default)(this, Tooltip);
-    _this = (0, _possibleConstructorReturn2.default)(this, (Tooltip.__proto__ || Object.getPrototypeOf(Tooltip)).call(this, props));
+    _this = (0, _possibleConstructorReturn2.default)(this, (Tooltip.__proto__ || Object.getPrototypeOf(Tooltip)).call(this));
     _this.childrenRef = null;
     _this.closeTimer = null;
     _this.defaultId = null;
@@ -26136,10 +26196,6 @@ function (_React$Component) {
     _this.isControlled = null;
     _this.leaveTimer = null;
     _this.touchTimer = null;
-    _this.internalState = {
-      hover: false,
-      focus: false
-    };
 
     _this.onRootRef = function (ref) {
       _this.childrenRef = ref;
@@ -26160,20 +26216,12 @@ function (_React$Component) {
           enterDelay = _this$props.enterDelay;
       var childrenProps = children.props;
 
-      if (event.type === 'focus') {
-        _this.internalState.focus = true;
-
-        if (childrenProps.onFocus) {
-          childrenProps.onFocus(event);
-        }
+      if (event.type === 'focus' && childrenProps.onFocus) {
+        childrenProps.onFocus(event);
       }
 
-      if (event.type === 'mouseover') {
-        _this.internalState.hover = true;
-
-        if (childrenProps.onMouseOver) {
-          childrenProps.onMouseOver(event);
-        }
+      if (event.type === 'mouseover' && childrenProps.onMouseOver) {
+        childrenProps.onMouseOver(event);
       }
 
       if (_this.ignoreNonTouchEvents && event.type !== 'touchstart') {
@@ -26219,20 +26267,12 @@ function (_React$Component) {
           leaveDelay = _this$props2.leaveDelay;
       var childrenProps = children.props;
 
-      if (event.type === 'blur') {
-        _this.internalState.focus = false;
-
-        if (childrenProps.onBlur) {
-          childrenProps.onBlur(event);
-        }
+      if (event.type === 'blur' && childrenProps.onBlur) {
+        childrenProps.onBlur(event);
       }
 
-      if (event.type === 'mouseleave') {
-        _this.internalState.hover = false;
-
-        if (childrenProps.onMouseLeave) {
-          childrenProps.onMouseLeave(event);
-        }
+      if (event.type === 'mouseleave' && childrenProps.onMouseLeave) {
+        childrenProps.onMouseLeave(event);
       }
 
       clearTimeout(_this.enterTimer);
@@ -26249,10 +26289,6 @@ function (_React$Component) {
     };
 
     _this.handleClose = function (event) {
-      if (_this.internalState.focus || _this.internalState.hover) {
-        return;
-      }
-
       if (!_this.isControlled) {
         _this.setState({
           open: false
@@ -28247,7 +28283,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Zoom__WEBPACK_IMPORTED_MODULE_101__ = __webpack_require__(/*! ./Zoom */ "./node_modules/@material-ui/core/Zoom/index.js");
 /* harmony import */ var _Zoom__WEBPACK_IMPORTED_MODULE_101___default = /*#__PURE__*/__webpack_require__.n(_Zoom__WEBPACK_IMPORTED_MODULE_101__);
 /* harmony reexport (default from non-harmony) */ __webpack_require__.d(__webpack_exports__, "Zoom", function() { return _Zoom__WEBPACK_IMPORTED_MODULE_101___default.a; });
-/** @license Material-UI v1.4.3
+/** @license Material-UI v1.5.0
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -28440,7 +28476,7 @@ function (_React$Component) {
     var _this;
 
     (0, _classCallCheck2.default)(this, SwitchBase);
-    _this = (0, _possibleConstructorReturn2.default)(this, (SwitchBase.__proto__ || Object.getPrototypeOf(SwitchBase)).call(this, props));
+    _this = (0, _possibleConstructorReturn2.default)(this, (SwitchBase.__proto__ || Object.getPrototypeOf(SwitchBase)).call(this));
     _this.input = null;
     _this.isControlled = null;
     _this.state = {};
@@ -29318,14 +29354,14 @@ function (_React$Component) {
     var _this;
 
     (0, _classCallCheck2.default)(this, MuiThemeProvider);
-    _this = (0, _possibleConstructorReturn2.default)(this, (MuiThemeProvider.__proto__ || Object.getPrototypeOf(MuiThemeProvider)).call(this, props, context)); // Get the outer theme from the context, can be null
+    _this = (0, _possibleConstructorReturn2.default)(this, (MuiThemeProvider.__proto__ || Object.getPrototypeOf(MuiThemeProvider)).call(this)); // Get the outer theme from the context, can be null
 
     _this.broadcast = (0, _brcast.default)();
     _this.unsubscribeId = null;
     _this.outerTheme = null;
     _this.outerTheme = _themeListener.default.initial(context); // Propagate the theme so it can be accessed by the children
 
-    _this.broadcast.setState(_this.mergeOuterLocalTheme(_this.props.theme));
+    _this.broadcast.setState(_this.mergeOuterLocalTheme(props.theme));
 
     return _this;
   }
@@ -31086,8 +31122,8 @@ var withStyles = function withStyles(stylesOrCreator) {
         _this.theme = null;
         _this.unsubscribeId = null;
         _this.state = {};
-        _this.jss = _this.context[ns.jss] || jss;
-        var muiThemeProviderOptions = _this.context.muiThemeProviderOptions;
+        _this.jss = context[ns.jss] || jss;
+        var muiThemeProviderOptions = context.muiThemeProviderOptions;
 
         if (muiThemeProviderOptions) {
           if (muiThemeProviderOptions.sheetsManager) {
@@ -31103,7 +31139,7 @@ var withStyles = function withStyles(stylesOrCreator) {
         _this.stylesCreatorSaved = stylesCreator;
         _this.sheetOptions = (0, _objectSpread2.default)({
           generateClassName: generateClassName
-        }, _this.context[ns.sheetOptions]); // We use || as the function call is lazy evaluated.
+        }, context[ns.sheetOptions]); // We use || as the function call is lazy evaluated.
 
         _this.theme = listenToTheme ? _themeListener.default.initial(context) || getDefaultTheme() : noopTheme;
 
@@ -31398,7 +31434,7 @@ var withTheme = function withTheme() {
         var _this;
 
         (0, _classCallCheck2.default)(this, WithTheme);
-        _this = (0, _possibleConstructorReturn2.default)(this, (WithTheme.__proto__ || Object.getPrototypeOf(WithTheme)).call(this, props, context));
+        _this = (0, _possibleConstructorReturn2.default)(this, (WithTheme.__proto__ || Object.getPrototypeOf(WithTheme)).call(this));
         _this.unsubscribeId = null;
         _this.state = {};
         _this.state = {
@@ -89163,6 +89199,40 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./node_modules/recompose/node_modules/@babel/runtime/helpers/inheritsLoose.js":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/recompose/node_modules/@babel/runtime/helpers/inheritsLoose.js ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  subClass.__proto__ = superClass;
+}
+
+module.exports = _inheritsLoose;
+
+/***/ }),
+
+/***/ "./node_modules/recompose/node_modules/@babel/runtime/helpers/interopRequireDefault.js":
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/recompose/node_modules/@babel/runtime/helpers/interopRequireDefault.js ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+
+module.exports = _interopRequireDefault;
+
+/***/ }),
+
 /***/ "./node_modules/recompose/pure.js":
 /*!****************************************!*\
   !*** ./node_modules/recompose/pure.js ***!
@@ -89173,7 +89243,7 @@ exports.default = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/builtin/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/builtin/interopRequireDefault.js");
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/recompose/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -89215,7 +89285,7 @@ exports.default = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/builtin/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/builtin/interopRequireDefault.js");
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/recompose/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -89273,7 +89343,7 @@ exports.default = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/builtin/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/builtin/interopRequireDefault.js");
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/recompose/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -89297,14 +89367,14 @@ exports.default = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/builtin/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/builtin/interopRequireDefault.js");
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/recompose/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
 
-var _inheritsLoose2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/builtin/inheritsLoose */ "./node_modules/@babel/runtime/helpers/builtin/inheritsLoose.js"));
+var _inheritsLoose2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/inheritsLoose */ "./node_modules/recompose/node_modules/@babel/runtime/helpers/inheritsLoose.js"));
 
 var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
@@ -89361,7 +89431,7 @@ exports.default = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/builtin/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/builtin/interopRequireDefault.js");
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/recompose/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -97805,12 +97875,7 @@ exports.SocialButtonStyle = function () {
         buttonContainer: {
             textAlign: 'right',
             width: '100%',
-            marginTop: '2em',
-            '& button': {
-                '& span': {
-                    width: '100%'
-                }
-            }
+            marginTop: '2em'
         },
         button: {
             color: '#fff',
