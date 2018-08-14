@@ -1,0 +1,181 @@
+{ 
+    "_id" : "reactapp", 
+    "signIn" : {
+        "title" : "Verification", 
+        "intro" : "Let's verify who you are?", 
+        "help" : "Some help on signing in", 
+        "button" : "Verify", 
+        "forgotPassword" : "Forgot password?", 
+        "bottomUrlText" : "Don't have an account?", 
+        "fields" : [
+            {
+                "name" : "username", 
+                "type" : "email", 
+                "label" : "Email", 
+                "required" : true, 
+                "requiredPrompt" : "Please enter email", 
+                "isEmail" : true, 
+                "isEmailPrompt" : "Invalid email address"
+            }, 
+            {
+                "name" : "password", 
+                "type" : "password", 
+                "label" : "Password", 
+                "required" : true, 
+                "requiredPrompt" : "Please enter password"
+            }
+        ], 
+        "authenticators" : [
+            "MyTicketek", 
+            "Facebook", 
+            "Google"
+        ]
+    }, 
+    "signUp" : {
+        "title" : "Create an account", 
+        "button" : "Create Account", 
+        "bottomUrlText" : "Already have an account?", 
+        "fields" : [
+            {
+                "name" : "firstName", 
+                "type" : "text", 
+                "label" : "First Name", 
+                "required" : true, 
+                "requiredPrompt" : "Please enter first name"
+            }, 
+            {
+                "name" : "lastName", 
+                "type" : "text", 
+                "label" : "Last Name", 
+                "required" : true, 
+                "requiredPrompt" : "Please enter last name"
+            }, 
+            {
+                "name" : "mobile", 
+                "type" : "text", 
+                "label" : "Mobile", 
+                "required" : true, 
+                "requiredPrompt" : "Please enter mobile", 
+                "isPhone" : true, 
+                "isPhonePrompt" : "Invalid mobile number"
+            }, 
+            {
+                "name" : "email", 
+                "type" : "text", 
+                "label" : "Email", 
+                "required" : true, 
+                "requiredPrompt" : "Please enter email", 
+                "isEmail" : true, 
+                "isEmailPrompt" : "Invalid email address"
+            }, 
+            {
+                "name" : "confirmEmail", 
+                "type" : "text", 
+                "label" : "Confirm Email", 
+                "required" : true, 
+                "requiredPrompt" : "Please enter confirm email", 
+                "sameAs" : "email", 
+                "sameAsPrompt" : "Confirmation email must match the email you entered above", 
+                "isEmail" : true, 
+                "isEmailPrompt" : "Invalid email address"
+            }, 
+            {
+                "name" : "password", 
+                "type" : "password", 
+                "label" : "Password", 
+                "required" : true, 
+                "requiredPrompt" : "Please enter password"
+            }
+        ], 
+        "customerOptInItems" : [
+            {
+                "id" : 1.0, 
+                "label" : "Yes, tell me about pre-sales, discounts, offers, and the latest event news.", 
+                "default" : false
+            }, 
+            {
+                "id" : 2.0, 
+                "label" : "Yes, I would like to receive mobile alerts and special offers from Ticketek.", 
+                "default" : false
+            }, 
+            {
+                "id" : 3.0, 
+                "label" : "Yes! I want to join Purkle to earn eVouchers when responding to surveys, and receive special offers by email. Collection Statement, Terms And Conditions, Privacy Policy", 
+                "default" : false
+            }
+        ], 
+        "customerConsentItems" : [
+            {
+                "id" : 1.0, 
+                "label" : "I have read and accept the terms of Ticketek's privacy policy and Collection Statement.", 
+                "default" : false, 
+                "requiredPrompt" : "Please accept terms and conditions"
+            }
+        ], 
+        "authenticators" : [
+            "MyTicketek", 
+            "Facebook", 
+            "Google"
+        ]
+    }, 
+    "forgotPassword" : {
+        "title" : "Forgot Password", 
+        "intro" : "Let's verify who you are?", 
+        "help" : "Some help on signing in", 
+        "button" : "Verify", 
+        "bottomUrlText" : "Remember your password?", 
+        "fields" : [
+            {
+                "name" : "email", 
+                "type" : "email", 
+                "label" : "Email", 
+                "required" : true, 
+                "requiredPrompt" : "Please enter email", 
+                "isEmail" : true, 
+                "isEmailPrompt" : "Invalid email address"
+            }
+        ], 
+        "authenticators" : [
+            "MyTicketek"
+        ]
+    }, 
+    "social" : {
+        "facebookLabel" : "Continue with Facebook", 
+        "googleLabel" : "Continue with Google"
+    }, 
+    "footer" : {
+        "security" : "Secure Checkout", 
+        "copyright" : "2017 ticketek.com.au All rights reserved", 
+        "pipe" : "|", 
+        "termsAndConditions" : {
+            "link" : {
+                "text" : "Terms & conditions", 
+                "href" : "https://premier.ticketek.com.au/Content/buyers/termsofsale.aspx"
+            }
+        }, 
+        "privacy" : {
+            "link" : {
+                "text" : "Privacy", 
+                "href" : "https://premier.ticketek.com.au/Content/buyers/privacy.aspx"
+            }
+        }
+    }, 
+    "images" : {
+        "logoMain" : {
+            "url" : "/images/ticketekMain.svg", 
+            "alt" : "Ticketek", 
+            "href" : "https://www.ticketek.com.au"
+        }
+    }, 
+    "icons" : {
+        "ticket" : "/images/ticket.jpg", 
+        "secure" : "/images/padlock.jpg", 
+        "help" : "/images/questionmark.jpg", 
+        "numberOne" : "/images/numberOne.jpg", 
+        "numberTwo" : "/images/numberTwo.jpg"
+    }, 
+    "theme" : {
+        "primaryColor" : "#1badeb", 
+        "secondaryColor" : "#1badeb"
+    }
+}
