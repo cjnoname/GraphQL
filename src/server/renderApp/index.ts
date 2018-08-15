@@ -3,6 +3,8 @@ import { renderPage } from './controller';
 import { InitialState } from 'models/initial';
 import { fetchTheme } from './middleware';
 import { themes } from '../initial';
+import * as express_graphql from 'express-graphql';
+import { buildSchema } from 'graphql';
 
 const render = express.Router();
 
@@ -15,6 +17,22 @@ render.use(async (req, res, next) => {
 });
 
 render.get('/api/theme', (req, res) => res.send(initialState));
+
+const root = {
+  message: () => 'Hello World!'
+};
+
+const schema = buildSchema(`
+    type Query {
+        message: String
+    }
+`);
+
+render.use('/graphql', express_graphql({
+  schema,
+  rootValue: root,
+  graphiql: true
+}));
 
 render.get('*', (req, res) => renderPage(req, res, initialState));
 
