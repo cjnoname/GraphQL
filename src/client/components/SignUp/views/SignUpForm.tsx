@@ -19,7 +19,8 @@ interface Props {
   submitting: boolean,
   pristine: boolean,
   invalid: boolean,
-  signUp: Account
+  signUp: Account,
+  classes: any
 }
 
 const decorate = withStyles(({ mixins, spacing }) => ({
