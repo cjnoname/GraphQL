@@ -10,8 +10,8 @@ import GooglePay from './components/GooglePay';
 export const routes = (
   <Switch>
     <Layout>
-      <Route exact path="(/|/googlePay)" component={GooglePay} />
-      <Route exact path="/signin" component={SignIn} />
+      {/* <Route exact path="(/|/googlePay)" component={GooglePay} /> */}
+      <Route exact path="(/|/signin)" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="/forgotPassword" component={ForgotPassword} />
     </Layout>
