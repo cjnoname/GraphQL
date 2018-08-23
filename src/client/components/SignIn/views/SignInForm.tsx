@@ -11,12 +11,10 @@ import { validateAny } from 'utils/validation';
 import SimpleFormList from 'UI/Form/simpleFormList';
 
 interface Props {
-  dispatch: any,
   handleSubmit: () => {},
   pristine: boolean,
   submitting: boolean,
   invalid: boolean,
-  error: any,
   signIn: Account
 }
 
@@ -41,7 +39,7 @@ export const validator = (value: any, values: any, props: Props, name: string) =
   }
 };
 
-let SignInForm = decorate<Props>(({ dispatch, handleSubmit, pristine, invalid, submitting, error, classes, signIn }) => (
+let SignInForm = decorate<Props>(({ handleSubmit, pristine, invalid, submitting, classes, signIn }) => (
   <form onSubmit={handleSubmit}>
     <SimpleFormList
       name="signIn"
@@ -50,7 +48,7 @@ let SignInForm = decorate<Props>(({ dispatch, handleSubmit, pristine, invalid, s
       fields={signIn.fields}
     />
     <div className={classes.button}>
-      <Button label={signIn.button} type="submit" className={classes.buttonColor} disabled={submitting || pristine || invalid} fullWidth />
+      <Button label={signIn.button} type="submit" className={classes.buttons} disabled={submitting || pristine || invalid} fullWidth />
     </div>
   </form>
 ));

@@ -18,20 +18,31 @@ render.use(async (req, res, next) => {
 
 render.get('/api/theme', (req, res) => res.send(initialState));
 
-const root = {
-  message: () => 'Hello World!'
+const getRootValue = () => {
+  return {
+    message: () => 'Hello World!',
+    appearsIn: [
+      'NEWHOPE',
+      'EMPIRE',
+      'JEDI'
+    ]
+  };
 };
 
 const schema = buildSchema(`
     type Query {
-        message: String
+        message: String,
+        appearsIn: [String]
     }
 `);
 
-render.use('/graphql', express_graphql({
-  schema,
-  rootValue: root,
-  graphiql: true
+render.use('/graphql', express_graphql(async (request, response, graphQLParams) => {
+  console.log(graphQLParams);
+  return {
+    schema,
+    rootValue: await getRootValue(),
+    graphiql: true
+  };
 }));
 
 render.get('*', (req, res) => renderPage(req, res, initialState));
