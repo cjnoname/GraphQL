@@ -1,0 +1,19 @@
+query getSingleCourse($courseId: Int!) {
+  course(id: $courseId) {
+    title
+    author
+    description
+    topic
+    url
+  }
+}
+{
+  "courseId": 1
+}
+
+
+
+query {
+  message,
+  appearsIn
+}
