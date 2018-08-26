@@ -26,6 +26,45 @@ query getCoursesForTopic($topic: String!) {
 }
 
 
+query getCoursesWithFragment($courseId1: Int!, $courseId2: Int!) {
+  course1: course(id: $courseId1) {
+		...courseFields
+  }
+  course2: course(id: $courseId2) {
+		...courseFields
+  }
+}
+fragment courseFields on Course {
+    title
+    author
+    description
+    topic
+    url
+}
+{
+  "courseId1": 1,
+  "courseId2": 3
+}
+
+
+mutation updateCourseTopic($id: Int!, $topic: String!) {
+  updateCourseTopic(id: $id, topic: $topic) {
+    ...courseFields
+  }
+}
+fragment courseFields on Course {
+    title
+    author
+    description
+    topic
+    url
+}
+{
+  "id": 1,
+  "topic": "222222"
+}
+
+
 query {
   message,
   appearsIn

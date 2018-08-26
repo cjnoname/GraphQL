@@ -24,9 +24,21 @@ const getCourse = (args: any) => {
 
 const getCourses = (args: any) => args.topic ? coursesData.filter(course => course.topic === args.topic) : coursesData;
 
+const updateCourseTopic = ({ id, topic }: { id: number, topic: string }) => {
+  coursesData.map(course => {
+    if (course.id === id) {
+      course.topic = topic;
+      return course;
+    }
+  });
+  const res =  coursesData.filter(course => course.id === id)[0];
+  return res;
+};
+
 const root = {
   course: getCourse,
-  courses: getCourses
+  courses: getCourses,
+  updateCourseTopic
 };
 
 const root1 = {
@@ -42,6 +54,9 @@ const schema = buildSchema(`
     type Query {
         course(id: Int!): Course
         courses(topic:String): [Course]
+    }
+    type Mutation {
+      updateCourseTopic(id: Int!, topic: String): Course
     }
     type Course{
       id: Int
