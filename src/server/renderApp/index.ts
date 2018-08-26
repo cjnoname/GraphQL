@@ -18,29 +18,73 @@ render.use(async (req, res, next) => {
 
 render.get('/api/theme', (req, res) => res.send(initialState));
 
-const getRootValue = () => {
-  return {
-    message: () => 'Hello World!',
-    appearsIn: [
-      'NEWHOPE',
-      'EMPIRE',
-      'JEDI'
-    ]
-  };
+const getCourse = (args: any) => {
+  return coursesData.filter((course: any) => course.id === args.id)[0];
+};
+
+const getCourses = (args: any) => args.topic ? coursesData.filter(courses => courses.topic === args.topic) : coursesData;
+
+const root = {
+  course: getCourse,
+  courses: getCourses
+};
+
+const root1 = {
+  message: () => 'Hello World!',
+  appearsIn: [
+    'NEWHOPE',
+    'EMPIRE',
+    'JEDI'
+  ]
 };
 
 const schema = buildSchema(`
     type Query {
-        message: String,
-        appearsIn: [String]
+        course(id: Int!): Course
+        courses(topic:String): [Course]
+    }
+    type Course{
+      id: Int
+      title: String
+      author: String
+      description: String
+      topic: String
+      url: String
     }
 `);
+
+const coursesData = [
+  {
+    id: 1,
+    title: 'title1',
+    author: 'author1',
+    description: 'description1',
+    topic: 'Node.js',
+    url: 'https://aa.com'
+  },
+  {
+    id: 2,
+    title: 'title2',
+    author: 'author2',
+    description: 'description2',
+    topic: 'Nodeaaa.js',
+    url: 'https://bb.com'
+  },
+  {
+    id: 3,
+    title: 'title3',
+    author: 'author3',
+    description: 'description3',
+    topic: 'Node123123.js',
+    url: 'https://cc.com'
+  }
+];
 
 render.use('/graphql', express_graphql(async (request, response, graphQLParams) => {
   console.log(graphQLParams);
   return {
     schema,
-    rootValue: await getRootValue(),
+    rootValue: root,
     graphiql: true
   };
 }));
