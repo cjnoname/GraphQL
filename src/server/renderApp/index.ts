@@ -22,7 +22,7 @@ const getCourse = (args: any) => {
   return coursesData.filter((course: any) => course.id === args.id)[0];
 };
 
-const getCourses = (args: any) => args.topic ? coursesData.filter(courses => courses.topic === args.topic) : coursesData;
+const getCourses = (args: any) => args.topic ? coursesData.filter(course => course.topic === args.topic) : coursesData;
 
 const root = {
   course: getCourse,
@@ -75,7 +75,7 @@ const coursesData = [
     title: 'title3',
     author: 'author3',
     description: 'description3',
-    topic: 'Node123123.js',
+    topic: 'Node.js',
     url: 'https://cc.com'
   }
 ];
